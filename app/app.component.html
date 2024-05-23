@@ -1,0 +1,42 @@
+<ion-app>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="https://scontent.fcrk3-2.fna.fbcdn.net/v/t1.15752-9/368130093_833228041879469_4554637626264304520_n.png?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=fy4lrBQooIkAX9PhU6z&_nc_oc=AQm5GNwiD6MxVMkzjhYAxMUGjcJ2yK5p9X4V3VrrPfm2M4vUVKvi5bXdFIC1Tv8AI78&_nc_ht=scontent.fcrk3-2.fna&oh=03_AdSNclumansIHbm3TzGR8eIpQ7ZZKW_tIXxkczdQRm4MEA&oe=65867304" alt="">
+        <ion-label>
+          <h2>Coco brandy</h2>
+          <p>Best Winery</p>
+        </ion-label>
+      </div>
+      <ion-list class="menu-items" lines="none">
+        <ion-item [routerLink] ="['/folder']"> 
+          <ion-icon name="home" slot="start"></ion-icon>Home
+        </ion-item>
+        <ion-item [routerLink] ="['/cart']"> 
+          <ion-icon name="cart-outline"></ion-icon>Cart
+        </ion-item>
+        <ion-item [routerLink] ="['/store']"> 
+          <ion-icon name="storefront-outline"></ion-icon>Products
+        </ion-item>
+        <ion-item [routerLink] ="['/about']">
+          <ion-icon name="apps-outline" slot="start"></ion-icon>About the app
+        </ion-item>
+        <ion-item [routerLink] ="['/company-history']">
+          <ion-icon name="business-outline"></ion-icon>Company History
+        </ion-item>
+        <ion-item [routerLink] ="['/developers']">
+          <ion-icon name="people-circle-outline"></ion-icon>Developers
+        </ion-item>
+        <ion-item [routerLink] ="['/contacts']">
+          <ion-icon name="call-outline"></ion-icon>Contact us
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <div class="hr"></div>
+    <ion-item class="bottom" lines="none" (click)="signOut()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>Sign Out
+    </ion-item>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

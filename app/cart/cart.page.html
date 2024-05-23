@@ -1,0 +1,121 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="white"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="header-title">Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- cart.page.html -->
+
+<ion-content>
+ <!-- Header Image -->
+ <div class="slider">
+  <figure>
+      <div class="slide">
+          
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/370221328_643840541012559_2794046519832884066_n.png?stp=dst-png_p403x403&_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_ohc=ioZ0z1Y98EoAX-aYQ9Z&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTjv4hnT9mxhNGPz8qjFtuKWDwxIAzBnxOibCLYv3hrkg&oe=658E3CC5" alt="">
+      </div>
+      <div class="slide">
+      
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/370234385_1286358235874430_243842703517078533_n.png?stp=dst-png_p403x403&_nc_cat=101&ccb=1-7&_nc_sid=510075&_nc_ohc=Q0tmL-YesmwAX8EwuTS&_nc_oc=AQl7fLr78hS9JCHjzW5bUdVAsFEl7FsMtAo44BvDWxXr9eoX7Exol5WY_K4apk2b7vMCHWUXGi0XBiID5JTAE75b&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTX7ubvvuFokn63GW9eWbAnecPY9ScXZC6UMdcjZpOD9g&oe=658E4DDE" alt="">
+      </div>
+      <div class="slide">
+         
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/370233549_871407884640782_8060522298488524788_n.png?stp=dst-png_p403x403&_nc_cat=110&ccb=1-7&_nc_sid=510075&_nc_ohc=TdVuv8HiZiEAX9rea3m&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRYRAC43kC4SbztWnDCSXWzUsOLlk5h7UMIkuBm730y4g&oe=658E5A8F" alt="">
+      </div>
+      <div class="slide">
+          
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/370194068_308568368667821_4129420190399007817_n.png?stp=dst-png_p403x403&_nc_cat=107&ccb=1-7&_nc_sid=510075&_nc_ohc=Ft3V-wLz5eUAX8Pn_pU&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQNDPZk_KmWV2haklw_4ljbUjdN74pUB4W0zi4drusD0g&oe=658E6A07" alt="">
+      </div>
+  </figure>
+</div>
+
+<ion-row class="ion-justify-content-center">
+  <ion-col>
+    <p class="shop-now-text">Shop Now</p>
+  </ion-col>
+</ion-row>
+
+  <!-- Buttons for Filtering -->
+  <ion-row class="ion-justify-content-center filter-buttons">
+    <ion-button class="filter-button">All</ion-button>
+    <ion-button class="filter-button">New</ion-button>
+    <ion-button class="filter-button">Deluxe</ion-button>
+    <ion-button class="filter-button">Promo</ion-button>
+   
+    <!-- Add more buttons as needed -->
+  </ion-row>
+
+    <!-- Item container -->
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" size-md="3" *ngFor="let item of items">
+        <ion-card class="info-card">
+          <ion-img [src]="item.imageUrl" alt="Item Image" class="item-image"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ item.title }}</ion-card-title>
+            <ion-card-subtitle>{{ item.price | currency: 'USD':'symbol':'1.2-2' }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button color="dark" expand="full" (click)="addToCart(item)">Add to Cart</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- Shopping Cart -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="cartVisible">
+    <ion-fab-button (click)="toggleCart()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="danger" *ngFor="let cartItem of cartItems">
+        <ion-icon name="trash" (click)="removeFromCart(cartItem)"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!cartVisible && cartItems.length > 0">
+    <ion-fab-button (click)="toggleCart()">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngIf="cartVisible">
+    <ion-card-header>
+      <ion-card-title>Your Cart</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let cartItem of cartItems">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="cartItem.imageUrl"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ cartItem.title }}</h2>
+            <p class="item-quantity">
+              Quantity:
+              <ion-icon class="quantity-button" name="remove-circle" (click)="decrementQuantity(cartItem)"></ion-icon>
+              {{ cartItem.quantity }}
+              <ion-icon class="quantity-button" name="add-circle" (click)="incrementQuantity(cartItem)"></ion-icon>
+            </p>
+            <p>{{ cartItem.price | currency: 'USD':'symbol':'1.2-2' }} each</p>
+          </ion-label>
+          <ion-button fill="clear" color="danger" (click)="removeFromCart(cartItem)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    
+      <div class="ion-text-end">
+        <strong>Your Total: {{ calculateTotal() | currency: 'USD':'symbol':'1.2-2' }}</strong>
+        <ion-button expand="full" (click)="checkout()">Pay <ion-icon name="bag-shopping"></ion-icon></ion-button>
+      </div>
+    
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,196 @@
+// cart.page.scss
+
+
+.slider {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin: 0;
+    padding: 0;
+}
+
+figure {
+  position: relative;
+  left: 0;
+  width: 400%; /* Adjusted width */
+  animation: 10s slide infinite;
+  margin: 0px;
+  padding: 0;
+  padding-top: 10px;
+}
+
+.slide {
+  position: relative;
+  width: 25%;
+  float: left;
+  margin: 0;
+    padding: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px; /* Added border-radius for rounded corners */
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0;
+    padding: 0;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  10%,
+  90% {
+    left: 0;
+  }
+  20%,
+  80% {
+    left: -100%;
+  }
+  30%,
+  70% {
+    left: -200%;
+  }
+  40%,
+  60% {
+    left: -300%;
+  }
+  50% {
+    left: -400%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+
+// shop text
+.shop-now-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0 10px; /* Adjusted margin */
+  text-align: center;
+  color: #333;
+}
+
+// buttons
+.filter-buttons {
+  display: flex;
+  gap: 3px; /* Adjust the gap for spacing between buttons */
+  flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
+}
+
+.filter-button {
+  border-radius: 5px;
+  border: 1px solid #000;
+  transition: background-color 0.3s;
+  --background: #fff;
+  color: #000;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.filter-button:hover {
+  background-color: darkred;
+  color: #530707;
+}
+
+.filter-button:last-child {
+  margin-right: 0; /* Remove right margin for the last button in the row */
+}
+  .filter-scroll {
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+
+
+/* Other styles remain unchanged */
+
+ion-content {
+  --background: #f3f3f3;
+
+  ion-grid {
+    padding: 10px;
+  }
+
+  ion-card {
+    margin-bottom: 20px;
+    margin-left: 2px;
+    width: 100%;
+    max-width: 300px; // Adjust the max-width as needed
+  }
+
+  .item-image {
+    width: 100%;
+    height: 150px; // Adjust the height as needed
+    object-fit: cover;
+  }
+
+  ion-fab {
+    margin-bottom: 20px;
+  }
+}
+
+.carrito {
+  border: 1px solid #666;
+  width: 35%;
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: auto;
+  position: sticky !important;
+  top: 0;
+  transition: 0.3s;
+  margin-right: -100%;
+  opacity: 0;
+
+  ion-card {
+    background-color: #f3f3f3;
+    padding: 30px;
+  }
+
+  .fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .btn-pagar {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  ion-content {
+    ion-grid {
+      display: block;
+    }
+
+    .contenedor-items {
+      width: 100% !important;
+    }
+
+    .carrito {
+      width: 100%;
+    }
+  }
+}

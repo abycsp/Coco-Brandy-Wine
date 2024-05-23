@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="white"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="header-title">About the App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="about-content">
+  <div class="header-image-container">
+    <video autoplay loop muted plays-inline style="width: 100%;">
+      <source src="../assets/redwine.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="about-text-container">
+    <div>
+      <p class="best-seller-title">ABOUT THE APP</p>
+    </div>
+    <p class="about-paragraph">
+      Welcome to Coco Brandy, your ultimate destination for exquisite brandy experiences. 
+      Our app is designed to provide you with a curated selection of the finest coco brandies, each crafted with precision and passion. Explore the rich history and flavors of our brandy collection, and embark on a journey of indulgence. Indulge in the exquisite taste of Coco Brandy wine, where sophistication meets tropical allure. Our masterful blend combines the finest grapes with the rich essence of coconut, creating a sensory 
+      symphony that delights connoisseurs. .
+    </p>
+    <!-- Add more paragraphs as needed -->
+  </div>
+
+  <!--card slides-->
+  <div class="card-list">
+    <a href="#" class="card-item">
+        <img src="https://i.pinimg.com/474x/78/b1/4b/78b14b43ff35be8d76e9ccfdc51742ab.jpg" alt="Card Image">
+        <span class="developer">Investors</span>
+        <h3>Iconic figures like Kendall who invest in our winery</h3>
+        <div class="arrow">
+            <ion-icon name="people-circle-outline"></ion-icon>
+        </div>
+    </a>
+    <a href="#" class="card-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_mE5zrzYbi7UNte9gL2zGmGtIWqiy9qgI0ROuNa171wnrOJFANCQBj5ottWcI63GOa6g&usqp=CAU" alt="Card Image">
+        <span class="designer">Our First Store</span>
+        <h3>First successful launch of our store in 2023.</h3>
+        <div class="arrow">
+          <ion-icon name="storefront-outline"></ion-icon>
+        </div>
+    </a>
+    <a href="#" class="card-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdfksYCN_seqiFlEEjcMuPlHeNPuuwO1-E4FS95kfladwDgiIufqhba-kpXzQ8h6ca0Kg&usqp=CAU" alt="Card Image">
+        <span class="editor">Making of CocoBrandy</span>
+        <h3>CocoBrandy's vineyard is more than a farm; it's a symphony of sun-kissed grapes and meticulous craftsmanship. </h3>
+        <div class="arrow">
+          <ion-icon name="wine-outline"></ion-icon>
+        </div>
+    </a>
+</div>
+
+  <div class="video-container">
+    <iframe width="650" height="380" src="https://www.youtube.com/embed/Rc4LqYM65As" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+
+</ion-content>

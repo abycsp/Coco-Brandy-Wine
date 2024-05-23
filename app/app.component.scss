@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu-header-bg {
+  height: 180px;
+  width: 350px;
+  background: linear-gradient(90deg, #580303, #2c3e50); /* Gradient from dark red to dark gray */
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3); /* Soft shadow with a gray tint */
+  transform: rotate(-10deg);
+  border-radius: 15px 20px 30px 50px;
+  margin: -50px 0 60px -18px;
+}
+
+.header-content {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+
+  ion-label {
+    padding-left: 10px;
+    color: #fff;
+  }
+
+  h2 {
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a cool effect */
+  }
+
+  p {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid; /* Gradient from dark red to dark gray */; /* White border */
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+.menu-items {
+  margin: 0px;
+
+  ion-icon {
+    margin-right: 20px;
+    color: #bdc3c7; /* Gray icon color */
+  }
+
+  ion-item {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  .active {
+    border-left: 5px solid #f1c40f; /* Yellow border for the active item */
+    color: #f1c40f; /* Yellow text color */
+    padding-left: 15px;
+
+    ion-icon {
+      color: #f1c40f; /* Yellow icon color */
+    }
+  }
+}
+
+.hr {
+  border-bottom: 2px solid #bdc3c7; /* Gray */
+  margin: 10px 0;
+  width: 100%;
+}
+
+.bottom {
+  padding-bottom: 10px;
+}
+
